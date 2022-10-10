@@ -16,7 +16,7 @@ def check_int(msg):
     else:
         return input_data
    
-def sert():
+def check_square():
     num_1 = check_int('Введите число: ')
     num_2 = check_int('Введите число: ')
      
@@ -30,6 +30,6 @@ def sert():
     else:
         print('Нет')
         
-sert()
+check_square()
     
     
