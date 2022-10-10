@@ -17,18 +17,18 @@ def check_int(msg):
         return input_data
    
 def check_square():
-    num_1 = check_int('Введите число: ')
-    num_2 = check_int('Введите число: ')
+    num_1 = check_int('Введите первое число: ')
+    num_2 = check_int('Введите второе число: ')
      
     num_1 = int(num_1)
     num_2 = int(num_2)
     
     if num_1 >= num_2 and num_1 ** 0.5 == num_2:
-        print('Да')
+        print(f'Число {num_1} является квадратом числа {num_2}.')
     if num_1 <= num_2 and num_2 ** 0.5 == num_1:
-        print('Да')
+        print(f'Число {num_2} является квадратом числа {num_1}.')
     else:
-        print('Нет')
+        print(f'Числа {num_1} и {num_2} не являются квадратом друг друга.')
         
 check_square()
     
