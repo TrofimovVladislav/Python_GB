@@ -10,6 +10,10 @@
 # 5 7 9 10
 
 def create_array():
+    """
+    Функция для создания массива определенного размера
+    и вводом элементов массива с клавиатуры.
+    """
     size = int(input('Введите размер массива: '))
     array_input = [] 
     for x in range(size): 
@@ -18,6 +22,9 @@ def create_array():
     return array_input
 
 def sorted_2D_array():
+    """
+    Функция сортировки 2D масива по возрастанию.
+    """
     array = create_array()
     array_sorted = sorted(array[0] + array[1])
     len_ = int((len(array_sorted)/2))
