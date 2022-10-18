@@ -4,41 +4,34 @@
 
 # *Пример:*
 
-# - 67,82 -> 23
-# - 0,56 -> 11
-# - 456536
+# 67.82 -> 23
+# 0,56 -> 11
+# 4569 -> 24
+# -4569.32 -> 29 
 
 def check_any_digit():
     """
-    Функция проверяет является ли введенное 
-    значение целым или вещественным числом.
+    Функция проверяет является ли введенное значение целым или вещественным числом.
     """
     input_data = input('Введите число: ')
+    input_data = input_data.replace('-','').replace('.','').replace(',','')
     if input_data.isdigit():
-        return input_data
-    elif any(input_data.replace(x,'').isdigit() for x in ('.',',','-')):
         return input_data
     else:
         print(f'Вы ввели не число.\nПовторите ввод. ')
         return check_any_digit()
   
-
-def float_figures_sum():
+def sum_of_digits():
     """
     Функция находит сумму цифр целого или вещественного числа.
     """
-    # num = input('\nВведите число: ')
-    num_abs = check_any_digit()
+    number = check_any_digit()
     sum = 0
-    for i in num_abs:
+    for i in number:
         if i != '.' and i != ',' and i != '-':
             sum += int(i)
-    print(f'Сумма всех цифр числа {num_abs} равна {sum}.')
+    print(f'Сумма всех цифр введенного числа равна {sum}.')
 
-# # float_figures_sum(67.82)
-# # float_figures_sum(0.56)
-# # float_figures_sum(456536)
-float_figures_sum()
-
+sum_of_digits()
 
 
