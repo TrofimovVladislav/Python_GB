@@ -19,7 +19,7 @@ def simple_multiplier(num):
     '''
     i = 2
     input_num = num
-    list_simple = list()
+    list_simple = []
     while num > 1:
         if num % i == 0:
             if i not in list_simple:
