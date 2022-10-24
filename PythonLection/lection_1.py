@@ -326,15 +326,15 @@
 # print(f'After sorting: {persons}')
 
 
-def create_array():
-    size = int(input('Введите размер массива: '))
-    array_input = [] 
-    for x in range(size): 
-        array_input.append([int(y) for y in input('Введите элементы массива: ').split()]) 
-    print(array_input)
-    return(array_input)
+# def create_array():
+#     size = int(input('Введите размер массива: '))
+#     array_input = [] 
+#     for x in range(size): 
+#         array_input.append([int(y) for y in input('Введите элементы массива: ').split()]) 
+#     print(array_input)
+#     return(array_input)
     
-create_array()
+# create_array()
 
 # size = int(input('Введите размер: '))
 # arr = int(input('Введите массив: '))
@@ -355,4 +355,14 @@ create_array()
 # print(list_numbers)
 
 
+def fib(n):
+    if n in [1, 2]:
+        return 1
+    else:
+        return fib(n-1) + fib(n-2)
+    
+list = []
+for e in range(1, 10):
+    list.append(fib(e))
+print(list)
 
