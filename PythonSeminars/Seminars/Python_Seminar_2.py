@@ -141,3 +141,11 @@
 # print(hren())
 # print(hren())
 
+import random
+ 
+res = []
+for n in range(7):
+    if n not in res:
+        res.append(random.randint(1,50))
+print (res)
+    
