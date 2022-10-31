@@ -21,18 +21,50 @@
 # print (result.start())
 # print (result.end())
 
+import random
 
-def util(n):
-    g = int(input('Сделайте ход: '))
-    if 28 < n:
-        print(n-g)
-        n = n-g
-        if n > 28:
-            return util(n)
-        else:
-            print('Ура!!! Вы Выиграли!!!')
+def draw(n):
+    lot1 = input(f'Для определения очередности хода нажмите клавишу "ENTER"')
+    for i in range(n)
+    if lot1 == '':
+        n = random.randint(1, 13)
+        print(f'У Игрока №1 выпало число: {n}')
+        lot2 = input(f'Для определения очередности хода нажмите клавишу "ENTER"')
+        n = random.randint(1, 13)
+        print(f'У Игрока №2 выпало число: {n}')
+      
+draw(2)
+
+
+
+
+# print(f'У первого игрока выпала цифра: {lot1}')
+# lot2 = input('Выбор Игрока #2: ', (random.randint(1, 6)))
+# print(f'У второго игрока выпала цифра: {lot2}')
     
-util(2021)
+    
+
+# def draw(x, y):
+#     if lot1 > lot2:
+#         print('Начинает первый игрок')
+#     else:
+#         print('Начинает второй игрок')
+
+# draw(lot1, lot2)
+
+
+# exit()
+# def util(n):
+#     g = int(input('Сделайте ход: '))
+#     if 28 < n:
+#         print(n-g)
+#         n = n-g
+#         if n > 28:
+#             return util(n)
+#         else:
+#             print('Ура!!! Вы Выиграли!!!')
+    
+# util(2021)
 
 
 # def util(n):
