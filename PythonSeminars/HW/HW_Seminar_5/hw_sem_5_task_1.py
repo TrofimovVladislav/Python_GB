@@ -49,29 +49,29 @@
        
 # draw()
 
-import random
+# import random
 
-def draw():
-    gamer_man = 'Человек'
-    gamer_bot = 'Бот'
+# def draw():
+#     gamer_man = 'Человек'
+#     gamer_bot = 'Бот'
     
-    print('Для определения очередности хода бросаем жребий: ')
-    lot_1 = input(f'Жребий бросает игрок {gamer_man}. Нажмите "ENTER": ')
-    if lot_1 == '':
-        n_1 = random.randint(1, 12)
-        print(f'Игроку {gamer_man} выпало число: {n_1}')
-    print(f'Жребий бросает игрок {gamer_bot}.')
-    n_2 = random.randint(1, 12)
-    # print(f'Ход {gamer_bot}:')
-    print(f'Игроку {gamer_bot} выпало число: {n_2}')
-    if n_1 > n_2:
-        winner_draw = gamer_man
-        print(f'Число {n_1} больше {n_2}. \nИгру начинает игрок {winner_draw}.')
-    else:
-        winner_draw = gamer_bot
-        print(f'Число {n_2} больше {n_1}. \nИгру начинает игрок {winner_draw}.')
+#     print('Для определения очередности хода бросаем жребий: ')
+#     lot_1 = input(f'Жребий бросает игрок {gamer_man}. Нажмите "ENTER": ')
+#     if lot_1 == '':
+#         n_1 = random.randint(1, 12)
+#         print(f'Игроку {gamer_man} выпало число: {n_1}')
+#     print(f'Жребий бросает игрок {gamer_bot}.')
+#     n_2 = random.randint(1, 12)
+#     # print(f'Ход {gamer_bot}:')
+#     print(f'Игроку {gamer_bot} выпало число: {n_2}')
+#     if n_1 > n_2:
+#         winner_draw = gamer_man
+#         print(f'Число {n_1} больше {n_2}. \nИгру начинает игрок {winner_draw}.')
+#     else:
+#         winner_draw = gamer_bot
+#         print(f'Число {n_2} больше {n_1}. \nИгру начинает игрок {winner_draw}.')
                
-    return winner_draw
+#     return winner_draw
        
 # draw()
 
@@ -79,20 +79,43 @@ def digi():
     gi = int(input('Введите число на хрен: '))
     return gi
 
-
-
-def util(n):
-    
-    if draw() == 'Человек':
-        gamer_1 = 'Человек'
-        print(f'Ход игрока {gamer_1}')
-        g = digi()
-        return print(f'Чел {n - g}')
+def schet(n):
+    n = n - digi()
+    print(n)
+    if n > 28:
+        return schet(n)
     else:
-        gamer_2 = 'Бот'
-        print(f'Ход игрока {gamer_2}')
-        g = digi()
-        return print(f'Бот {n - g}')
+        print('Все')
+schet(2021)
+
+# gamer_1 = draw()
+
+# def util(n):
+#     if gamer_1 == 'Человек':
+#         gamer_2 = 'Бот'
+#     else:
+#         gamer_2 == 'Человек'
+#     if count == 0:
+#         print(f'Ход игрока {gamer_2}')
+        
+#     print(f'Ход игрока {gamer_1}')
+#     g = digi()
+#     n = n - g
+#     print(n)
+#     if n > 28:
+#         count = 1
+#         return util(n)
+    
+#     else:
+#         print('Все')
+    # else:
+    #     gamer_2 = 'Бот'
+    #     print(f'Ход игрока {gamer_2}')
+    #     g = digi()
+    #     n = n - g
+    #     print(f'Остаток после хода Бот{n}')
+    #     return util(n)
+      
     # # else:
     # #     gamer_2 = 'Бот'
     #     # g = input(f'Ход игрока {gamer_2}. Введите число от 1 до 28: ')
@@ -117,7 +140,7 @@ def util(n):
     #         print('Ура!!! Вы Выиграли!!! Все конфеты Ваши!!!')
     #         print('Игра окончена :)')
     
-util(2021)
+# util(2021)
 
 
 
