@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # path = 'D:/VSC/Python_GB/PythonLection/pytext.txt'
 
 # with open (path, 'r') as f:
@@ -39,3 +40,5 @@ rt = 1, 3, 5, 6
 # res = select(lambda x: (x, x**2), (rt))
 # print(res)
 
+=======
+>>>>>>> c8eea67d2b8370c3bbc75581cbd0425f2b17c9cd
