@@ -15,27 +15,6 @@ res = select(lambda x: (x, x**2), nums_chet)
 
 print(res)
 
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 exit()
 path = 'C:/GB/Python_GB/PythonLection/pytext.txt'
 
