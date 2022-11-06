@@ -1,94 +1,81 @@
-import random
+ # import re
 
-def draw():
-    gamer_man = 'Человек'
-    gamer_bot = 'Бот'
-    
-    print('\nДля определения очередности хода бросаем жребий: \n')
-    lot_1 = input(f'Жребий бросает игрок {gamer_man}.\nЧтобы сделать ход нажмите "ENTER": ')
-    
-    if lot_1 == '':
-        n_1 = random.randint(1, 3)
-        print(f'Игроку {gamer_man} выпало число: {n_1}\n')
+# result = re.match(r'AV', 'AV Analytics Vidhya AV')
+# print(result.group(0))
 
-    print(f'Жребий бросает игрок {gamer_bot}.')
-    n_2 = random.randint(1, 3)
-    print(f'Игроку {gamer_bot} выпало число: {n_2}\n')
-    
-    if n_1 == n_2:
-        print(input('Ничья. Пребросьте жребий.\nДля продолжения нажмите "ENTER": '))
-        return draw()
-    elif n_1 > n_2:
-        winner_draw = gamer_man
-        print(f'Число {n_1} больше {n_2}. \nИгру начинает игрок {winner_draw}.\n')
+# result = re.match(r'AV', 'AV Analytics Vidhya AV')
+# print (result.start())
+# print (result.end())
+
+
+# 5 - Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных. 
+# Входные и выходные данные хранятся в отдельных текстовых файлах.
+# файл первый:
+# AAAAAAAAAAAABBBBBBBBBBBCCCCCCCCCCDDDDDDEEEEEFFFFG python is sooooooo coooooool
+# файл второй:
+# сжатый текст.
+
+def rle_encode(data):
+    encoding = '' 
+    prev_char = '' 
+    count = 1 
+
+    if not data: return ''
+
+    for char in data:
+        # If the prev and current characters don't match... 
+        if char != prev_char: 
+        # ...then add the count and character to our encoding 
+            if prev_char: 
+                encoding += str(count) + prev_char 
+            count = 1 
+            prev_char = char 
+        else: 
+            # Or increment our counter if the characters do match 
+            count += 1 
+    else: 
+        # Finish off the encoding 
+        encoding += str(count) + prev_char 
+        return encoding
+encoded_val = rle_encode('AAAAAAFDDCCCCCCCAEEEEEEEEEEEEEEEEE')
+print(encoded_val)
+
+
+data = 'AAAAAAFDDCCCCCCCAEEEEEEEEEEEEEEEEE'
+fir = data[0]
+count = 1
+for fur in data:
+    if fur != fir:
+        count = 1
+    if fur == fir:
+        count +=1
+        print(count)
     else:
-        winner_draw = gamer_bot
-        print(f'Число {n_2} больше {n_1}. \nИгру начинает игрок {winner_draw}.\n')
-        print(f'ВИННЕР {winner_draw}')       
-    return winner_draw
-       
-# draw()
+        fur = data[]
+    else:
+print(fir + str(count))
 
-def digi():
-    gi = int(input('Введите число на хрен: '))
-    return gi
-# digi()
+print(fir)
 
-# exit()
-gamer_ = draw()
-def util(n):
-    gamer_1 = gamer_
-    gamer_2 = ''
-    if gamer_1 == 'Человек':
-        gamer_2 == 'Бот'
-    elif gamer_1 == 'Бот':
-        gamer_2 = 'Человек'
 
-    print(f'Ход игрока {gamer_1}.')
-    g = digi()
-    n = n - g
-    print(n)
-    print(f'Ход игрока {gamer_2}.')
-    g = digi()
-    # n = n - g
-    # print(n)
-    if n > 28:
-        gamer_2 == gamer_1
-        return util(n)
-util(2021)
+def rle_encode(data):
+    encoding = '' 
+    prev_char = '' 
+    count = 1
+
+    if not data: return ''
+
+    for char in data:
+        if char != prev_char: 
+            if prev_char: 
+                encoding += str(count) + prev_char 
+            count = 1
+            prev_char = char 
+        else: 
+            count += 1 
+    else: 
+        encoding += str(count) + prev_char 
+        return encoding
     
-#     else:
-#         print('Все')
-#     else:
-#         gamer_2 = 'Бот'
-#         print(f'Ход игрока {gamer_2}')
-#         g = digi()
-#         n = n - g
-#         print(f'Остаток после хода Бот{n}')
-#         return util(n)
-      
-#     else:
-#         gamer_2 = 'Бот'
-#         g = input(f'Ход игрока {gamer_2}. Введите число от 1 до 28: ')
-#     print(f'Ход игрока {gamer_2}')
-#     g = input(digi())
-#     if  not g.isdigit():
-#         print(f'Ошибка ввода. Повторите ввод.')
-#         return digi()
-#     # g = int(g)
-#     if int(g) > 28:
-#         print(f'Ошибка ввода. Введите число от 1 до 28.')
-#         return digi()
-#     else:
-#         g = int(g)
-#         if n > 28:
-#             print(n-g)
-#             n = n-g
-#         if n > 28:
-#             return util(n)
-#         else:
-#             print(f'Осталось {n} конфет.')
-#             print('Ура!!! Вы Выиграли!!! Все конфеты Ваши!!!')
-#             print('Игра окончена :)')
-    
-# util(2021)
+encoded_val = rle_encode('AAAAAAFDDCCCCCCCAEEEEEEEEEEEEEEEEE')
+print(encoded_val)
