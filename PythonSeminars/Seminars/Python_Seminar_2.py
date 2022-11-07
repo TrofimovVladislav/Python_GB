@@ -141,11 +141,82 @@
 # print(hren())
 # print(hren())
 
-import random
+# import random
  
-res = []
-for n in range(7):
-    if n not in res:
-        res.append(random.randint(1,50))
-print (res)
+# res = []
+# for n in range(7):
+#     if n not in res:
+#         res.append(random.randint(1,50))
+# print (res)
+
+# СПИСКИ ----------------------------------------
+
+# sp = []
+# sp.append(True)
+# sp = sp + [1213, 'abba', 54654, [1, 2, 3, 5]]
+# print(sp)
+
+# sp.insert(0, 999)
+# print('after append', sp)
+
+# a = sp.pop(-1)
+# print('after pop', a)
+# a.remove(2)
+# print('after remove', a)
+
+# for i in a: print(i)
+
+# mas_2dim = []
+# for i in range(5):
+#     temp = []
+#     for j in range(5):
+#         temp.append(i + j)
+#     mas_2dim.append(temp)
+
+# for i in range(len(mas_2dim)):  # для печати в столбик
+#     print(mas_2dim[i])
+
+# СЛОВАРИ ---------------------------------------
+
+# book = {}
+
+# book['Миша'] = 98465566
+# book['Саша']=[64654464,46546464]
+
+# print(book)
+
+# if 'Даша' in book: 
+#     print("Yes")
+# else: 
+#     print("No")
+
+# for x,y in book.items():
+#     print(x, y)
+
+
+# for x in book.values():
+#     print(x)
+
+# for x in book.keys():
+#     print(x)
+
+# 1. Напишите программу, которая принимает на вход число N и 
+# выдаёт последовательность из N членов.
+
+# *Пример:*
+
+# - Для N = 5: 1, -3, 9, -27, 81
+
+# 2. Для натурального n создать словарь индекс-значение, 
+# состоящий из элементов последовательности 3n + 1.
+
+# *Пример:*
+
+# - Для n = 6: {1: 4, 2: 7, 3: 10, 4: 13, 5: 16, 6: 19}
+
+# 3. Напишите программу, в которой пользователь будет задавать две строки, 
+# а программа - определять количество вхождений одной строки в другой.
+
+
+
     

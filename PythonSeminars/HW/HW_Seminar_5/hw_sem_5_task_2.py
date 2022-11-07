@@ -19,37 +19,35 @@ def rle_encode(data):
     else:
         encoding += str(count) + prev_char
                 
-    # path_out = 'C:/GB/Python_GB/PythonSeminars/HW/HW_Seminar_5/rle_encoding_out.txt'
-    with open ('rle_encoding_out.txtpath_out', 'w') as file:
+    with open ('rle_encoding_out.txt', 'w') as file:
         file.write(encoding)
             
     return encoding
 
-# path = 'C:/GB/Python_GB/PythonSeminars/HW/HW_Seminar_5/rle_encoding_in.txt'
 with open('rle_encoding_in.txt', 'r') as file:
     rle_in = file.read()
-    print(f'Исходный текст: {rle_in}')
+    print(f'\nИсходный текст: {rle_in}')
        
-print(f'Текст сжатый RLE: {rle_encode(rle_in)}')
+print(f'Сжатый RLE текст: {rle_encode(rle_in)}')
 
-# def rle_decode(data): 
-#     decode = '' 
-#     count = '' 
-#     for char in data:
-#         if char.isdigit():
-#             count += char
-#         else: 
-#             decode += char * int(count)
-#             count = ''
+def rle_decode(data): 
+    decode = '' 
+    count = '' 
+    for char in data:
+        if char.isdigit():
+            count += char
+        else: 
+            decode += char * int(count)
+            count = ''
             
-#             # path = 'C:/GB/Python_GB/PythonSeminars/HW/HW_Seminar_5/rle_decoding_out.txt'
-#             with open('rle_decoding_out.txt', 'w') as file:
-#                 file.write(decode)
-#     return decode
+            with open('rle_decoding_out.txt', 'w') as file:
+                file.write(decode)
+    return decode
 
-# # path = 'C:/GB/Python_GB/PythonSeminars/HW/HW_Seminar_5/rle_encoding_out.txt'
-# with open('rle_encoding_out.txt', 'r') as file:
-#     rle_decoding_in = file.read()
-#     print(f'\nИсходный текст сжатый RLE: {rle_decoding_in}')
+with open('rle_encoding_out.txt', 'r') as file:
+    rle_decoding_in = file.read()
+    print(f'\nИсходный сжатый RLE текст: {rle_decoding_in}')
   
-# print(f'Текст RLE восстановленный: {rle_decode(rle_decoding_in)}')
+print(f'Восстановленный RLE текст: {rle_decode(rle_decoding_in)}\n')
+
+
