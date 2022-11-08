@@ -193,7 +193,6 @@
 # for x,y in book.items():
 #     print(x, y)
 
-
 # for x in book.values():
 #     print(x)
 
@@ -207,6 +206,21 @@
 
 # - Для N = 5: 1, -3, 9, -27, 81
 
+# import math
+
+# def any_math():
+#     try:
+#         n = int(input('Введите число: '))
+#         for i in range(n):
+#             print(math.pow(-3, i), end = ' ')
+#     except:
+#         print('Введены некоректные данные повторите ввод.')
+#         return any_math()
+    
+# any_math()
+
+
+
 # 2. Для натурального n создать словарь индекс-значение, 
 # состоящий из элементов последовательности 3n + 1.
 
@@ -214,8 +228,30 @@
 
 # - Для n = 6: {1: 4, 2: 7, 3: 10, 4: 13, 5: 16, 6: 19}
 
+# n = int(input('Введите n: '))
+# book = {}
+
+# for i in range(n):
+#     book[i+1] = 3*(i+1) + 1
+
+# print(book, end='\n')
+
 # 3. Напишите программу, в которой пользователь будет задавать две строки, 
 # а программа - определять количество вхождений одной строки в другой.
+
+# sp1 = 'аброкадабра аброкдабра'
+# sp2 = 'бр'
+
+# # x = sp.count(sp1)
+# # print(x)
+
+# count = 0
+# for i in range(len(sp1)):
+#     if sp1[i: i+len(sp2)] == sp2:
+#         count = count + 1
+       
+# print(count) 
+
 
 
 
