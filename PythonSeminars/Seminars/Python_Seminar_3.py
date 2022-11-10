@@ -75,21 +75,95 @@
 # Найдите произведение элементов на указанных позициях. 
 # Позиции хранятся в файле file.txt в одной строке одно число.
 
-import math
-n = 5
-def sps():
-    ser = []
-    for i in range(-n, n + 1):
-        ser.append(i)
-    print(ser)
+# import math
+# n = 5
+# def sps():
+#     ser = []
+#     for i in range(-n, n):
+#         ser.append(i)
+#     print(ser)
+              
+#     with open('sem_3.txt','r') as file:
+#         qw = []
+#         for i in file.readlines():
+#             qw.append(int(i))
+#         print(f'qw {qw}')
+        
+#         res = 1
+#         for j in qw:
+#             res = res*ser[j]
+#         print(res)
+        
+#         wr = []
+#         for j in qw:
+#             wr.append(ser[j])
+#         print(math.prod(wr))
+        
+# sps()
 
-    with open('sem_3.txt','r') as file:
-        qw = [file.readlines()]
-        # for i in file.readlines():
-        #     qw.append(file.readlines())
-        # # print(math.prod(qw))
-        print(qw)
+# 2. Задайте список. Напишите программу, которая определит, 
+# присутствует ли в заданном списке строк некое число.
+
+# rt = ['qwe', '123', 'yey', 'gsds', '45']
+# for i in rt:
+#     if i.isdigit():
+#         print(i.isdigit(), i)
+
+#------------------------------------------------
+
+# Вариант с поиском конкретного числа.
+# rt = ['qwe', '123', 'yey', 'gsds', '45']
+# print(rt)
+# n = input('Введите искомое число n: ')
+# print(n in rt)
+
+
+
+# 3. Напишите программу, которая определит позицию второго 
+# вхождения строки в списке либо сообщит, что её нет.
+
+# *Пример:*
+
+# - список: ["qwe", "asd", "zxc", "qwe", "ertqwe"], ищем: "qwe", ответ: 3
+# - список: ["йцу", "фыв", "ячс", "цук", "йцукен", "йцу"], ищем: "йцу", ответ: 5
+# - список: ["йцу", "фыв", "ячс", "цук", "йцукен"], ищем: "йцу", ответ: -1
+# - список: ["123", "234", 123, "567"], ищем: "123", ответ: -1
+# - список: [], ищем: "123", ответ: -1
+
+# der = ["qwe", "asd", "zxc", "qwe", "ertqwe", "asd", "zxc", "qwe", "ertqwe", "asd"] # ищем: "qwe", ответ: 3
+# wer = "asd"
+
+# n = 2
+# count = 0
+# for i in range(len(der)):
+#     if wer == der[i]:
+#         count += 1
+#         if count == n:
+#             # print(count)
+#             print(f'Позиция {n}-го вхождения элемента {wer} = {i}.')
+
+#------------------------------------------------
+# Вариант решения с семинара
+
+list = ["йцу", "фыв", "ячс", "цук", "йцукен", "йцу"]
+
+N=input("Введите искомую строку ")
+print(list)
+
+count=0
+for i in range (len(list)):
+    if (list[i]==N) and count==0:
+        count=1
+    elif (list[i] == N) and count==1:
+        position=i
+        count=2
+
+if count==2: print (f'{N} входит в список {list} на позиции {position}')
+else: print ('-1')
+        
+
+
             
  
-sps()
+
 
