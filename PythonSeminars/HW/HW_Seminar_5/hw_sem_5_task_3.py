@@ -2,18 +2,13 @@
 # содержащие "абв". 
 # Функции FIND и COUNT юзать нельзя.
 
-ter = 'Забвение никогда не забава и не швабра'
+str_in = 'Забвение на сабвее никогда не сабвуфер и не забава.'
 
-ert = ter.split()
-# list = [ert.remove(i) for i in ert if 'абв' in i]
-list = [ert.remove(i) for i in ert if 'а' and 'б' and 'в' in i]
-print(' '.join(ert))
+def sort_str(string):
+    str_sorted = str_in.split()
+    list = [str_sorted.remove(i) for i in str_sorted if 'абв' in i]
+    print(' '.join(str_sorted))
 
-# for i in ert:
-#     # if 'а' and 'б' and 'в' in i:
-#     if 'абв' in i:
-#         ert.remove(i)
-# print(' '.join(ert))
-
+sort_str(str_in)
 
 
