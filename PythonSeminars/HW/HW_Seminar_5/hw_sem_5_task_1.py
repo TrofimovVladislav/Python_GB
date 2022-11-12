@@ -14,57 +14,225 @@
 
 import random
 
-def candy_game(n, max_num_candy):
-    candy_num = n
+def check_int(max_num_candy):
+    num = input('Введите количество забираемых конфет: ')
+    if not num.isdigit():
+        print(f'Ошибка. Введите число от 1 до {max_num_candy}.')
+        return check_int(max_num_candy)
+    num = int(num)
+    if num <= 0 or num > max_num_candy:
+        print(f'Ошибка. Введите число от 1 до {max_num_candy}.')
+        return check_int(max_num_candy)
+    else:
+        return num
+    
+def candy_game(candy_num, max_num_candy):
     gamer_man = 'Человек'
     gamer_bot = 'Бот'
     count = 0
         
-    print('\nДля определения очередности хода бросаем жребий: \n')
+    print('Для определения очередности хода бросаем жребий.')
     lot_1 = input(f'Жребий бросает игрок {gamer_man}.\nЧтобы сделать ход нажмите "ENTER": ')
     
     if lot_1 == '':
-        n_1 = random.randint(1, 3)
-        print(f'Игроку {gamer_man} выпало число: {n_1}\n')
+        draw_1 = random.randint(1, 3)
+        print(f'Игроку {gamer_man} выпало число: {draw_1}.\n')
         
     print(f'Жребий бросает игрок {gamer_bot}.')
-    n_2 = random.randint(1, 3)
-    print(f'Игроку {gamer_bot} выпало число: {n_2}\n')
+    draw_2 = random.randint(1, 3)
+    print(f'Игроку {gamer_bot} выпало число: {draw_2}.\n')
     
-    if n_1 == n_2:
+    if draw_1 == draw_2:
         print(input('Ничья. Пребросьте жребий.\nДля продолжения нажмите "ENTER": '))
-    if n_1 > n_2:
+        return candy_game(candy_num, max_num_candy)
+                
+    if draw_1 > draw_2:
         winner_draw = gamer_man
         loser_draw = gamer_bot
+        print(f'Число {draw_1} больше чем {draw_2}')
     else:
-        winner_draw = gamer_bot
-        loser_draw = gamer_man
-    print(f'Первым ходит игрок {winner_draw}.')
+        if draw_2 > draw_1:
+            winner_draw = gamer_bot
+            loser_draw = gamer_man
+            print(f'Число {draw_2} больше {draw_1}')
+    print(f'Первым ходит игрок {winner_draw}.\n')
 
     while candy_num > max_num_candy + 1:
+        
         if count == 0:
-            step = int(input(f'Ход игрока {winner_draw}: '))
-            if step > candy_num or step > max_num_candy:
-                step = int(input(f'За один ход можно взять не больше {max_num_candy} конфет. Повторите ход: '))
+            print(f'Ход игрока {winner_draw}.')
+            
+        if winner_draw == 'Человек':
+            step = check_int(max_num_candy)
             candy_num = candy_num - step
-        if candy_num > max_num_candy + 1:
-            print(f'Осталось еще {candy_num} конфет.')
+            print(f'Человек взял {step} конфет.\nОсталось еще {candy_num} конфет.\n')
             count = 1
-      
-        if count == 1:
-            step = int(input(f'Ход игрока {loser_draw}: '))
-            if step > candy_num or step > max_num_candy:
-                step = int(input(f'За один ход можно взять не больше {max_num_candy} конфет. Повторите ход: '))
+        else:
+            step = random.randint(1, max_num_candy + 1)
             candy_num = candy_num - step
-        if candy_num > max_num_candy + 1:
-            print(f'Осталось еще {candy_num} конфет.')
+            print(f'Бот взял {step} конфет.\nОсталось еще {candy_num} конфет.\n')
+            count = 1
+              
+        if count == 1:
+            print(f'Ход игрока {loser_draw}.')
+            
+        if loser_draw == 'Бот':
+            step = random.randint(1, max_num_candy + 1)
+            candy_num = candy_num - step
+            print(f'Бот взял {step} конфет.\nОсталось еще {candy_num} конфет.\n')
+            count = 0
+        else:
+            step = check_int(max_num_candy)
+            candy_num = candy_num - step
+            print(f'Человек взял {step} конфет.\nОсталось еще {candy_num} конфет.\n')
             count = 0
   
-    if count == 0:
-        print(f'Выигарл игрок {loser_draw}. Поздравляем!!!')
     if count == 1:
+        print(f'Выигарл игрок {loser_draw}. Поздравляем!!!')
+    if count == 0:
         print(f'Выиграл игрок {winner_draw}. Поздравляем!!!')
 
-
 candy_game(2021, 28)
+
+
+
+# import random
+
+# def check_int(max_num_candy):
+#     num = input('Введите количество забираемых конфет: ')
+#     if not num.isdigit():
+#         print(f'Ошибка. Введите число от 1 до {max_num_candy}.')
+#         return check_int(max_num_candy)
+#     num = int(num)
+#     if num <= 0 or num > max_num_candy:
+#         print(f'Ошибка. Введите число от 1 до {max_num_candy}.')
+#         return check_int(max_num_candy)
+#     else:
+#         return num
+    
+# def candy_game(candy_num, max_num_candy):
+#     gamer_man = 'Человек'
+#     gamer_bot = 'Бот'
+#     count = 0
+        
+#     print('Для определения очередности хода бросаем жребий.')
+#     lot_1 = input(f'Жребий бросает игрок {gamer_man}.\nЧтобы сделать ход нажмите "ENTER": ')
+    
+#     if lot_1 == '':
+#         draw_1 = random.randint(1, 3)
+#         print(f'Игроку {gamer_man} выпало число: {draw_1}.\n')
+        
+#     print(f'Жребий бросает игрок {gamer_bot}.')
+#     draw_2 = random.randint(1, 3)
+#     print(f'Игроку {gamer_bot} выпало число: {draw_2}.\n')
+    
+#     if draw_1 == draw_2:
+#         print(input('Ничья. Пребросьте жребий.\nДля продолжения нажмите "ENTER": '))
+#         return candy_game(candy_num, max_num_candy)
+                
+#     if draw_1 > draw_2:
+#         winner_draw = gamer_man
+#         loser_draw = gamer_bot
+#         print(f'Число {draw_1} больше чем {draw_2}')
+#     else:
+#         if draw_2 > draw_1:
+#             winner_draw = gamer_bot
+#             loser_draw = gamer_man
+#             print(f'Число {draw_2} больше {draw_1}')
+#     print(f'Первым ходит игрок {winner_draw}.\n')
+
+#     while candy_num > max_num_candy + 1:
+        
+#         if count == 0:
+#             print(f'Ход игрока {winner_draw}.')
+#         if winner_draw == 'Человек':
+#             step = check_int(max_num_candy)
+#         else:
+#             step = random.randint(1, max_num_candy + 1)
+#             print(f'Бот взял {step} конфет.')
+#         candy_num = candy_num - step
+#         if candy_num > max_num_candy + 1:
+#             print(f'Осталось еще {candy_num} конфет 1.\n')
+#             count = 1
+      
+#         if count == 1:
+#             print(f'Ход игрока {loser_draw}.')
+#         if loser_draw == 'Бот':
+#             step = random.randint(1, max_num_candy + 1)
+#             print(f'Бот взял {step} конфет.\n')
+#         candy_num = candy_num - step
+#         if candy_num > max_num_candy + 1:
+#             print(f'Осталось еще {candy_num} конфет 2.\n')
+#             # count = 0
+#         else:
+#             step = check_int(max_num_candy)
+#         candy_num = candy_num - step
+#         if candy_num > max_num_candy + 1:
+#             print(f'Осталось еще {candy_num} конфет 3.\n')
+#             count = 0
+  
+#     if count == 0:
+#         print(f'\nВыигарл игрок {loser_draw}. Поздравляем!!!')
+#     if count == 1:
+#         print(f'\nВыиграл игрок {winner_draw}. Поздравляем!!!')
+
+
+# candy_game(2021, 28)
+
+
+# import random
+
+# def candy_game(n, max_num_candy):
+#     candy_num = n
+#     gamer_man = 'Человек'
+#     gamer_bot = 'Бот'
+#     count = 0
+        
+#     print('\nДля определения очередности хода бросаем жребий: \n')
+#     lot_1 = input(f'Жребий бросает игрок {gamer_man}.\nЧтобы сделать ход нажмите "ENTER": ')
+    
+#     if lot_1 == '':
+#         n_1 = random.randint(1, 3)
+#         print(f'Игроку {gamer_man} выпало число: {n_1}\n')
+        
+#     print(f'Жребий бросает игрок {gamer_bot}.')
+#     n_2 = random.randint(1, 3)
+#     print(f'Игроку {gamer_bot} выпало число: {n_2}\n')
+    
+#     if n_1 == n_2:
+#         print(input('Ничья. Пребросьте жребий.\nДля продолжения нажмите "ENTER": '))
+#     if n_1 > n_2:
+#         winner_draw = gamer_man
+#         loser_draw = gamer_bot
+#     else:
+#         winner_draw = gamer_bot
+#         loser_draw = gamer_man
+#     print(f'Первым ходит игрок {winner_draw}.')
+
+#     while candy_num > max_num_candy + 1:
+#         if count == 0:
+#             step = int(input(f'Ход игрока {winner_draw}: '))
+#             if step > candy_num or step > max_num_candy:
+#                 step = int(input(f'За один ход можно взять не больше {max_num_candy} конфет. Повторите ход: '))
+#             candy_num = candy_num - step
+#         if candy_num > max_num_candy + 1:
+#             print(f'Осталось еще {candy_num} конфет.')
+#             count = 1
+      
+#         if count == 1:
+#             step = int(input(f'Ход игрока {loser_draw}: '))
+#             if step > candy_num or step > max_num_candy:
+#                 step = int(input(f'За один ход можно взять не больше {max_num_candy} конфет. Повторите ход: '))
+#             candy_num = candy_num - step
+#         if candy_num > max_num_candy + 1:
+#             print(f'Осталось еще {candy_num} конфет.')
+#             count = 0
+  
+#     if count == 0:
+#         print(f'Выигарл игрок {loser_draw}. Поздравляем!!!')
+#     if count == 1:
+#         print(f'Выиграл игрок {winner_draw}. Поздравляем!!!')
+
+
+# candy_game(2021, 28)
 

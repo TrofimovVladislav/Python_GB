@@ -82,14 +82,14 @@ print(encoded_val)
 
 import random
 
-def step():
+def check_int():
     num = input('Введите число на хрен: ')
     if not num.isdigit():
         print('Неверно. Повторите.')
-        return step()
+        return check_int()
     elif int(num) <= 0 or int(num) > 28:
         print('Неверно. Повторите.')
-        return step()
+        return (check_int)
     else:
         return int(num)
 
