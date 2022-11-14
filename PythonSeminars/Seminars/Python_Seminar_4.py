@@ -13,7 +13,7 @@
 # import json
 
 # BD={'Иванов': { 'adress':'MSK center', 'e-mail': 'sdfsfsf@ssdfsdf.ru' ,
-import json
+# import json
 
 # BD = {'Иванов': { 'adress':'MSK center', 'e-mail': 'sdfsfsf@ssdfsdf.ru' ,
 # 'phones': [654644464,6546465646,464566465,86465464465] } }
@@ -23,13 +23,10 @@ import json
 #     fname = 'BD.json' #открываем файл
 #     with open(fname, 'r', encoding='utf-8') as fh: # открываем файл на чтение
 #         BD_local = json.load(fh) # загружаем из файла данные в словарь data
-<<<<<<< HEAD
 #         print('БД успещно загружена')
 #         return BD_local
-=======
 #     print('БД успещно загружена')
 #     return BD_local
->>>>>>> 4ba9f98c48a30d1e8d26ab0d3af4214f50490a60
 
 # def save():
 # # сохранить в json
@@ -43,57 +40,12 @@ import json
 # BDnew = load ()
 # print(BDnew)
 
-<<<<<<< HEAD
-=======
 
 #------------------------------------------------
->>>>>>> 4ba9f98c48a30d1e8d26ab0d3af4214f50490a60
 # 5. Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
-
 # *Пример:*
-
-<<<<<<< HEAD
 # - для k = 8 список будет выглядеть так: 
 #     [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21] [Негафибоначчи]
-
-
-# n = 5
-# fib = [0, 1]
-# # res = []
-
-# for i in range(1, n):
-#     sum = fib[i+2] - fib[i+1]
-#     fib.append(sum)
-    
-# print (fib)   
-
-# x = int(input("Введите число: "))
-# y = int(input("Введите число: "))
-
-# big_num = max(x, y)
-
-# while True:
-#     if big_num % x == 0 and big_num % y == 0:
-#         result =  big_num
-#         break
-#     big_num += 1
-# print(big_num)
-
-    
-we = []
-s = '-27x2-6x-18=0'
-for i, j in enumerate(s):
-    if 'x' == j: 
-        we.append(i)
-    elif '=' == j:
-        we.append(i)
-a = int(s[:we[0]])
-b = int(s[we[0]+2:we[1]])
-c = int(s[we[1]+1:we[2]])
-
-print(a, b, c)
-=======
-# - для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21] [Негафибоначчи]
 
 # Вариант 1
 
@@ -130,7 +82,6 @@ print(a, b, c)
 #     'HER'
     
 
-
 # def quadratic_equation(A, B, C):
 
 #     D = B*B - 4*A*C
@@ -153,26 +104,59 @@ print(a, b, c)
 
 # a = 126
 # b = 70
-def nod(a,b):
-    while a%b > b:
-        a%b
-    d = a%b
-    # print(f'd {d}')
+# def nod(a,b):
+#     while a%b > b:
+#         a%b
+#     d = a%b
+#     # print(f'd {d}')
    
-    while b%d > d:
-        b%d
-    z = b%d
-    print(f'z {z}')
-    nok = (a*b)/z
-    print(nok)
-    return nok
+#     while b%d > d:
+#         b%d
+#     z = b%d
+#     print(f'z {z}')
+#     nok = (a*b)/z
+#     print(nok)
+#     return nok
 
-nod(300, 23)
+# nod(300, 23)
+
+# x = int(input("Введите число: "))
+# y = int(input("Введите число: "))
+
+# big_num = max(x, y)
+
+# while True:
+#     if big_num % x == 0 and big_num % y == 0:
+#         result =  big_num
+#         break
+#     big_num += 1
+# print(big_num)
 
 
+def quadratic_equation_from():    
+    s = input('Введите квадратное уравнение в формате Ax2+Bx+C=0,\n'
+              'где коэффициенты уравнения А, В и С - целые числа.\n'
+              'Вводить урааврнение нужно без пробелов. Начните ввод: \n')
+    elem_index = []
+    for i, j in enumerate(s):
+        if j == 'x' or j == '=': 
+            elem_index.append(i)
+            
+    a = int(s[:elem_index[0]])
+    b = int(s[elem_index[0] + 2:elem_index[1]])
+    c = int(s[elem_index[1] + 1:elem_index[2]])
+    
+    d = b*b - 4*a*c
+   
+    if d > 0:
+        x1 = (-b + d**0.5)/(2*a)
+        x2 = (-b - d**0.5)/(2*a)
+        print(f'Выражение имеет два корня {x1} и {x2}.')
+    elif d == 0:
+        x1 = -b/(2*a)
+        print(f'Выражение имеет один корень {x1}.')
+    else:
+        print(f'Выражение не имеет корней.')
 
-# print(252%70)
-# print(70%56)
-# print(56%14)
-# print((126*70)/14)
->>>>>>> 4ba9f98c48a30d1e8d26ab0d3af4214f50490a60
+quadratic_equation_from()
+
