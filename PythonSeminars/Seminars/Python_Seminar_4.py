@@ -164,7 +164,7 @@ def quadratic_equation_from():
     a = int(s[:elem_index[0]])
     if a == 0:
         print('Коэффициент А не может быть равен 0.\nПовторите ввод.\n')
-        return wer()
+        return check_equation()
     b = int(s[elem_index[0] + 2:elem_index[1]])
     c = int(s[elem_index[1] + 1:elem_index[2]])
     
