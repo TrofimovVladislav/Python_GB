@@ -91,19 +91,25 @@ import json
 # b = 70
 def nod(a,b):
     while a%b > b:
-        a%b
+        if a%b == 0:
+            d = b
+        else:
+            a%b
     d = a%b
-    # print(f'd {d}')
+    print(f'd {d}')
    
     while b%d > d:
         b%d
-    z = b%d
+        if b%d == 0:
+            z = d
+        else:
+            z = b%d
     print(f'z {z}')
     nok = (a*b)/z
     print(nok)
     return nok
 
-nod(300, 23)
+nod(68, 34)
 
 
 
