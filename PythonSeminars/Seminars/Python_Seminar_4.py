@@ -139,9 +139,9 @@ def check_equation():
                       'Вводить ураврнение нужно без пробелов. Начните ввод: \n')
 
     pattern = r'[-+1-9x2]+[-+0-9x]+[-+0-9]=0'   #Ax2+Bx+C=0
-    pattern = r'[-+1-9x2]=0'                    #Ax2=0
-    pattern = r'[-+1-9x2]+[-+0-9]=0'            #Ax2+C=0
-    pattern = r'[-+1-9x2]+[-+0-9x]=0'           #Ax2+Bx=0            
+    # pattern = r'[-+1-9x2]=0'                    #Ax2=0
+    # pattern = r'[-+1-9x2]+[-+0-9]=0'            #Ax2+C=0
+    # pattern = r'[-+1-9x2]+[-+0-9x]=0'           #Ax2+Bx=0            
     
     match = re.fullmatch(pattern, equation_)
 
