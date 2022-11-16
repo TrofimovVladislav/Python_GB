@@ -132,53 +132,54 @@
 
 
 import re
+
 def check_equation():
-    equation_ = input('Введите квадратное уравнение в формате Ax2+Bx+C=0,\n'
+    equation_ = input('\nВведите квадратное уравнение в формате Ax2+Bx+C=0,\n'
                       'где коэффициенты уравнения А, В и С - целые числа.\n'
                       'и коэффициет А не равен 0!\n'
                       'Вводить ураврнение нужно без пробелов. Начните ввод: \n')
 
-    pattern = r'[-+1-9x2]+[-+0-9x]+[-+0-9]=0'   #Ax2+Bx+C=0
-    pattern = r'[-+1-9x2]=0'                    #Ax2=0
-    pattern = r'[-+1-9x2]+[-+0-9]=0'            #Ax2+C=0
-    pattern = r'[-+1-9x2]+[-+0-9x]=0'           #Ax2+Bx=0            
+    pattern = r'[-+1-9x2]+[-+0-9x]+[-+0-9]=0' #Ax2+Bx+C=0
+    # pattern = r'[-+1-9x2]=0'                            #Ax2=0
+    # pattern = r'[-+1-9x2]{,1}+[-+0-9]=0'                  #Ax2+C=0
+    # pattern = r'[-+1-9x2]{,1}+[-+0-9x]=0'                 #Ax2+Bx=0            
     
     match = re.fullmatch(pattern, equation_)
 
     if match is not None:
         print(f'Уравнение "{match.group()}" введено верно.')    
     else:
-        print(f'Уравнеие "{equation_}" введено с не верно.\nБудьте внимательны и повторите ввод.')
-    return equation_
-
-# check_equation()
-
-def quadratic_equation_from():
-    s = check_equation()
-    elem_index = []
-
-    for i, j in enumerate(s):
-        if j == 'x' or j == '=': 
-            elem_index.append(i)
-            
-    a = int(s[:elem_index[0]])
-    if a == 0:
-        print('Коэффициент А не может быть равен 0.\nПовторите ввод.\n')
+        print(f'\nУравнение "{equation_}" введено не верно.\nБудьте внимательны и повторите ввод.')
         return check_equation()
-    b = int(s[elem_index[0] + 2:elem_index[1]])
-    c = int(s[elem_index[1] + 1:elem_index[2]])
-    
-    d = b*b - 4*a*c
-   
-    if d > 0:
-        x1 = (-b + d**0.5)/(2*a)
-        x2 = (-b - d**0.5)/(2*a)
-        print(f'Квадратное уравнение имеет два корня {x1} и {x2}.')
-    elif d == 0:
-        x1 = -b/(2*a)
-        print(f'Квадратное уравнение имеет один корень {x1}.')
-    else:
-        print(f'Квадратное уравнение не имеет корней.')
+        
+check_equation()
 
-quadratic_equation_from()
+# def quadratic_equation_from():
+#     s = check_equation()
+#     elem_index = []
+
+#     for i, j in enumerate(s):
+#         if j == 'x' or j == '=': 
+#             elem_index.append(i)
+            
+#     a = int(s[:elem_index[0]])
+#     if a == 0:
+#         print('Коэффициент А не может быть равен 0.\nПовторите ввод.\n')
+#         return check_equation()
+#     b = int(s[elem_index[0] + 2:elem_index[1]])
+#     c = int(s[elem_index[1] + 1:elem_index[2]])
+    
+#     d = b*b - 4*a*c
+   
+#     if d > 0:
+#         x1 = (-b + d**0.5)/(2*a)
+#         x2 = (-b - d**0.5)/(2*a)
+#         print(f'Квадратное уравнение имеет два корня {x1} и {x2}.')
+#     elif d == 0:
+#         x1 = -b/(2*a)
+#         print(f'Квадратное уравнение имеет один корень {x1}.')
+#     else:
+#         print(f'Квадратное уравнение не имеет корней.')
+
+# quadratic_equation_from()
 
