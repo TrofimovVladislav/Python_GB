@@ -179,24 +179,24 @@ def quadratic_equation_from():
         print('Коэффициент А не может быть равен 0.\nПовторите ввод.\n')
         return check_equation()
         
-check_equation()
+# check_equation()
 
-# def quadratic_equation_from():
-#     s = check_equation()
-#     elem_index = []
+def quadratic_equation_from():
+    s = check_equation()
+    elem_index = []
 
-#     for i, j in enumerate(s):
-#         if j == 'x' or j == '=': 
-#             elem_index.append(i)
+    for i, j in enumerate(s):
+        if j == 'x' or j == '=': 
+            elem_index.append(i)
             
-#     a = int(s[:elem_index[0]])
-#     if a == 0:
-#         print('Коэффициент А не может быть равен 0.\nПовторите ввод.\n')
-#         return check_equation()
-#     b = int(s[elem_index[0] + 2:elem_index[1]])
-#     c = int(s[elem_index[1] + 1:elem_index[2]])
+    a = int(s[:elem_index[0]])
+    if a == 0:
+        print('Коэффициент А не может быть равен 0.\nПовторите ввод.\n')
+        return check_equation()
+    b = int(s[elem_index[0] + 2:elem_index[1]])
+    c = int(s[elem_index[1] + 1:elem_index[2]])
     
-#     d = b*b - 4*a*c
+    d = b*b - 4*a*c
    
     if d > 0:
         x1 = (-b - d**0.5)/(2*a)
@@ -214,6 +214,6 @@ check_equation()
     # Дополнительно, решение можно проверить на сайте:
     # https://ru.onlinemschool.com/math/assistance/equation/quadratic/
 
-# quadratic_equation_from()
+quadratic_equation_from()
 
 
