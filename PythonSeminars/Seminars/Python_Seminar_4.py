@@ -142,7 +142,7 @@
 import re
 
 def check_equation():
-    equation_ = input('Введите квадратное уравнение в формате Ax2+Bx+C=0,\n'
+    equation_ = input('\nВведите квадратное уравнение в формате Ax2+Bx+C=0,\n'
                       'где коэффициенты уравнения А, В и С - целые числа.\n'
                       'и коэффициет А не равен 0!\n'
                       'Вводить ураврнение нужно без пробелов. Начните ввод: \n')
@@ -175,9 +175,30 @@ def quadratic_equation_from():
             elem_index.append(i)
             
     a = int(s[:elem_index[0]])
+
     # if a == 0:
     #     print('Коэффициент А не может быть равен 0.\nПовторите ввод.\n')
     #     return check_equation()
+
+    if a == 0:
+        print('Коэффициент А не может быть равен 0.\nПовторите ввод.\n')
+        return check_equation()
+        
+# check_equation()
+
+def quadratic_equation_from():
+    s = check_equation()
+    elem_index = []
+
+    for i, j in enumerate(s):
+        if j == 'x' or j == '=': 
+            elem_index.append(i)
+            
+    a = int(s[:elem_index[0]])
+    if a == 0:
+        print('Коэффициент А не может быть равен 0.\nПовторите ввод.\n')
+        return check_equation()
+
     b = int(s[elem_index[0] + 2:elem_index[1]])
     c = int(s[elem_index[1] + 1:elem_index[2]])
     

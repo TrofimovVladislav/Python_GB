@@ -1,3 +1,97 @@
+# Семинар №5 ----------------------------------------------------------------------------
+'''
+Lambda – для создания анонимных маленьких функций
+Map – применяет функцию к списку или словарю, возвращает измененный объект
+Filter - применяет логическую функцию к списку или словарю, возвращает элементы, 
+которые удовлетворяют условию
+Zip – создает кортежи из элементов словарей или списков
+List comprehension  - удобная генерация списков	
+'''
+
+# add = lambda x, y : x + y   #тут что-то поменяли
+  
+# print(add(2, 3) ) # Результат: 5
+
+# def multiply2(x):
+#   return x * 2
+    
+# print(list(map(multiply2, [1, 2, 3, 4])) )  # Вернет [2, 4, 6, 8]
+
+
+# dict_a = [{'name': 'python', 'points': 10}, {'name': 'java', 'points': 8}]
+
+# def check(x):
+#     if x > 10: return True
+#     else: return False
+
+# dict_a = [1,11,3,6,22,88,99,0,3]
+
+# res = list(filter(check, dict_a)) # Вернет: [{'name': 'python', 'points': 10}]
+
+# print(res)
+
+# a = [10, 20, 30, 40]
+# b = ['a', 'b', 'c', 'd', 'e']
+
+# for i in zip(a, b):
+#     print(i)
+    
+
+
+# spisok = [16, 46, 26, 36]
+# for i in enumerate(spisok):
+#     print(i)
+
+
+# squares = [x ** 2 for x in range(10)]
+
+# odds = [x for x in range(10) if x % 2 != 0]
+
+# print(squares)
+
+# print(odds)
+
+# Задача --------------------------------------------------------------------------------
+
+# Даны два многочлена. Задача - сформировать их сумму.
+# например, 5*x^3 + 2*x^2 + 6 и 7*x^2+6*x+3 , 
+# Тогда их сумма будет равна 5*x^3 + 9*x^2 + 6*x + 9
+
+# str2=input("Введите первый многочлен вида A*x^2+B*x+C=0 ")
+# dict= {}
+# def x (strin):
+#     dict_f={}
+#     for i in range(len(strin)-1):
+#         if strin[i]=='x':
+#             if strin[i+1]=='^':
+#                 tmp=int(strin[i+2])
+#     if strin[i-1]=='*':
+#         koef=int(strin[i-2])
+#         dict_f[tmp] = koef
+#     else:
+#         koef=1
+#         dict_f[tmp] = koef
+
+#     return dict_f
+
+# dict =x (str1)
+# print(dict)
+
+# ---------------------------------------------------------------------------------------
+
+# 1. Дан список чисел. Создайте список, в который попадают числа,
+# описывающие максимальную сплошную возрастающую последовательность. 
+# Порядок элементов менять нельзя.
+
+# *Пример:*
+
+# [1, 5, 2, 3, 4, 6, 1, 7] => [1, 7]
+# [1, 5, 2, 3, 4, 1, 7] => [1, 5]
+
+# ---------------------------------------------------------------------------------------
+
+# 38. Напишите программу, удаляющую из текста все слова, содержащие "абв".
+
 # задача 4 необязательная Даны два многочлена. 
 # Задача - сформировать их сумму.
 
@@ -39,81 +133,81 @@
 
 # pol = '5*x^3 + 14*x^2 + 6 = 0'
 
-import re
-import itertools
+# import re
+# import itertools
 
 
-file_1 = 'C:/GB/Python_GB/PythonSeminars/HW/HW_Seminar_5/33_Polynomial.txt'
-file_2 = 'C:/GB/Python_GB/PythonSeminars/HW/HW_Seminar_5/33_Polynomial2.txt'
-# file2 = '33_Polynomial2.txt'
-file_sum = '34_Sum_polynomials.txt'
+# file_1 = 'C:/GB/Python_GB/PythonSeminars/HW/HW_Seminar_5/33_Polynomial.txt'
+# file_2 = 'C:/GB/Python_GB/PythonSeminars/HW/HW_Seminar_5/33_Polynomial2.txt'
+# # file2 = '33_Polynomial2.txt'
+# file_sum = '34_Sum_polynomials.txt'
 
-# Получение данных из файла
+# # Получение данных из файла
 
-def read_pol(file):
-    with open(str(file), 'r') as data:
-        pol = data.read()
-    return pol
+# def read_pol(file):
+#     with open(str(file), 'r') as data:
+#         pol = data.read()
+#     return pol
 
 # Получение списка кортежей каждого (<коэффициент>, <степень>)
 
-def convert_pol(pol):
-    pol = pol.replace('= 0', '')
-    pol = re.sub("[*|^| ]", " ", pol).split('+')
-    pol = [char.split(' ') for char in pol]
-    pol = [[x for x in list if x] for list in pol]
-    for i in pol:
-        if i[0] == 'x': i.insert(0, 1)
-        if i[-1] == 'x': i.append(1)
-        if len(i) == 1: i.append(0)
-    pol = [tuple(int(x) for x in j if x != 'x') for j in pol]
-    return pol
+# def convert_pol(pol):
+#     pol = pol.replace('= 0', '')
+#     pol = re.sub("[*|^| ]", " ", pol).split('+')
+#     pol = [char.split(' ') for char in pol]
+#     pol = [[x for x in list if x] for list in pol]
+#     for i in pol:
+#         if i[0] == 'x': i.insert(0, 1)
+#         if i[-1] == 'x': i.append(1)
+#         if len(i) == 1: i.append(0)
+#     pol = [tuple(int(x) for x in j if x != 'x') for j in pol]
+#     return pol
 
 # Получение списка кортежей суммы (<коэф1 + коэф2>, <степень>)
 
-def fold_pols(pol1, pol2):   
-    x = [0] * (max(pol1[0][1], pol2[0][1] + 1))
-    for i in pol1 + pol2:        
-        x[i[1]] += i[0]
-    res = [(x[i], i) for i in range(len(x)) if x[i] != 0]
-    res.sort(key = lambda r: r[1], reverse = True)
-    return res
+# def fold_pols(pol1, pol2):   
+#     x = [0] * (max(pol1[0][1], pol2[0][1] + 1))
+#     for i in pol1 + pol2:        
+#         x[i[1]] += i[0]
+#     res = [(x[i], i) for i in range(len(x)) if x[i] != 0]
+#     res.sort(key = lambda r: r[1], reverse = True)
+#     return res
 
 # Составление итогового многочлена
 
-def get_sum_pol(pol):
-    var = ['*x^'] * len(pol)
-    coefs = [x[0] for x in pol]
-    degrees = [x[1] for x in pol]
-    new_pol = [[str(a), str(b), str(c)] for a, b, c in (zip(coefs, var, degrees))]
-    for x in new_pol:
-        if x[0] == '0': del (x[0])
-        if x[-1] == '0': del (x[-1], x[-1])
-        if len(x) > 1 and x[0] == '1' and x[1] == '*x^': del (x[0], x[0][0])
-        if len(x) > 1 and x[-1] == '1': 
-            del x[-1]
-            x[-1] = '*x'
-        x.append(' + ')
-    new_pol = list(itertools.chain(*new_pol))
-    new_pol[-1] = ' = 0'
-    return "".join(map(str, new_pol))
+# def get_sum_pol(pol):
+#     var = ['*x^'] * len(pol)
+#     coefs = [x[0] for x in pol]
+#     degrees = [x[1] for x in pol]
+#     new_pol = [[str(a), str(b), str(c)] for a, b, c in (zip(coefs, var, degrees))]
+#     for x in new_pol:
+#         if x[0] == '0': del (x[0])
+#         if x[-1] == '0': del (x[-1], x[-1])
+#         if len(x) > 1 and x[0] == '1' and x[1] == '*x^': del (x[0], x[0][0])
+#         if len(x) > 1 and x[-1] == '1': 
+#             del x[-1]
+#             x[-1] = '*x'
+#         x.append(' + ')
+#     new_pol = list(itertools.chain(*new_pol))
+#     new_pol[-1] = ' = 0'
+#     return "".join(map(str, new_pol))
 
-def write_to_file(file, pol):
-    with open(file, 'w') as data:
-        data.write(pol)
+# def write_to_file(file, pol):
+#     with open(file, 'w') as data:
+#         data.write(pol)
 
-pol1 = read_pol(file_1)
-pol2 = read_pol(file_2)
-pol_1 = convert_pol(pol1)
-pol_2 = convert_pol(pol2)
+# pol1 = read_pol(file_1)
+# pol2 = read_pol(file_2)
+# pol_1 = convert_pol(pol1)
+# pol_2 = convert_pol(pol2)
 
-pol_sum = get_sum_pol(fold_pols(pol_1, pol_2))
+# pol_sum = get_sum_pol(fold_pols(pol_1, pol_2))
 # print(pol_sum)
 # write_to_file(file_sum, pol_sum)
 
-print(pol1)
-print(pol2)
-print(pol_sum)
+# print(pol1)
+# print(pol2)
+# print(pol_sum)
 
 #------------------------------------------------
 
@@ -129,27 +223,26 @@ print(pol_sum)
 # nums2 = [1, 5, 2, 3, 4, 1, 7]    #=> [1, 5]
 
 
-def find_list(start_num, current_list):
-    new_list = [start_num]
-    max_num = max(current_list)
+# def find_list(start_num, current_list):
+#     new_list = [start_num]
+#     max_num = max(current_list)
 
-    for k in range(start_num, max_num):
-        if start_num + 1 in current_list:
-            new_list.append(start_num + 1)
-            start_num += 1
+#     for k in range(start_num, max_num):
+#         if start_num + 1 in current_list:
+#             new_list.append(start_num + 1)
+#             start_num += 1
                        
-    if len(new_list) > 1:
-        return new_list
+#     if len(new_list) > 1:
+#         return new_list
 
-    return []
+#     return []
 
-list_of_numbers = [1, 5, 3, 2, 4, 1, 7]
-lists = []
-min_num = min(list_of_numbers)
+# list_of_numbers = [1, 5, 3, 2, 4, 1, 7]
+# lists = []
+# min_num = min(list_of_numbers)
 
-current_list = find_list(min_num, list_of_numbers)
-print(current_list)
-
+# current_list = find_list(min_num, list_of_numbers)
+# print(current_list)
 
 
 # def max_sequence(seq):
