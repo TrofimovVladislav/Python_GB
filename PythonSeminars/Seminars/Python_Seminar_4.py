@@ -158,7 +158,7 @@ def check_equation():
     match = re.fullmatch(pattern, equation_)
    
     if match is not None:
-        print(f'\nУравнение ""{match.group()}" введено верно.\n')
+        print(f'\nУравнение "{match.group()}" введено верно.\n')
         return equation_  
     else:
         print(f'\nУравнеие "{equation_}" введено не верно.\nБудьте внимательны и повторите ввод.\n')
@@ -175,9 +175,9 @@ def quadratic_equation_from():
             elem_index.append(i)
             
     a = int(s[:elem_index[0]])
-    if a == 0:
-        print('Коэффициент А не может быть равен 0.\nПовторите ввод.\n')
-        return check_equation()
+    # if a == 0:
+    #     print('Коэффициент А не может быть равен 0.\nПовторите ввод.\n')
+    #     return check_equation()
     b = int(s[elem_index[0] + 2:elem_index[1]])
     c = int(s[elem_index[1] + 1:elem_index[2]])
     
