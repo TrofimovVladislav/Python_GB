@@ -9,35 +9,32 @@
         
 # draw_board(board)
 
-# maps = []
-# for i in range(1, 10):
-#     maps.append(i)
+maps = []
+for i in range(1, 10):
+    maps.append(i)
 
-# def draw_board(x):
+def draw_board(x):
 
-#     print ("-------------")
-#     for i in range(3):
-#         print ("|", maps[0+i*3], "|", maps[1+i*3], "|", maps[2+i*3], "|")
-#         print ("-------------")
+    print ("-------------")
+    for i in range(3):
+        print ("|", maps[0+i*3], "|", maps[1+i*3], "|", maps[2+i*3], "|")
+        print ("-------------")
   
-# def inp_():
-#     s = (int(input('Где крестик?: ')) - 1)
-#     if maps[s] != 'X':
-#         maps[s] = 'X'
-#     elif maps[s] == 'X':
-#         print('Ход не возможеню Переходи.')
-#         return inp_()
-#     if (maps.count('X') + maps.count('O')) < (len(maps)):
-#         draw_board(maps)
-#         return inp_()   
-#     else:
-#         return print('Все, Приехали )))')
+def inp_():
+    s = (int(input('Где крестик?: ')) - 1)
+    if maps[s] != 'X':
+        maps[s] = 'X'
+    elif maps[s] == 'X':
+        print('Ход не возможен. Переходи.')
+        return inp_()
+    if (maps.count('X') + maps.count('O')) < (len(maps)):
+        draw_board(maps)
+        return inp_()   
+    else:
+        return print('Все, Приехали )))')
 
-# draw_board(maps)
-# inp_()
-
-
-
+draw_board(maps)
+inp_()
 
 
 # ret = []
